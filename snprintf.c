@@ -1,8 +1,8 @@
 #include <stdarg.h>
 // Max #characters in string repr. of 64-bit int (excl. '\0').
-#define INT_MAX_CHAR_SIZE  20
+#define INT_MAX_CHAR_SIZE 12
 
-static int _from_int(char *buf, unsigned long int size, unsigned long val, int neg, int base) {
+static int _from_int(char *buf, unsigned long int size, unsigned int val, int neg, int base) {
     // Buffer for writing intermediate result
     char str[INT_MAX_CHAR_SIZE];
     // index into str
