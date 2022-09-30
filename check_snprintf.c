@@ -12,6 +12,15 @@ int clean_suite1(void) {
     return 0;
 }
 
+void testPERCENT(void) 
+{
+    char buf[20];
+    const char *str = "world";
+    int len = snprintf(buf, 20, "hello, %%", str); 
+    CU_ASSERT_STRING_EQUAL(buf, "hello, %");
+    CU_ASSERT(len == 9);
+}
+
 void testSTRING(void) 
 {
     char buf[20];
@@ -66,6 +75,7 @@ int main(void)
    /* add the tests to the suite */
    /* NOTE - ORDER IS IMPORTANT - MUST TEST fread() AFTER fprintf() */
    if (
+           (NULL == CU_add_test(pSuite, "test with percent", testPERCENT)) ||
            (NULL == CU_add_test(pSuite, "test with string", testSTRING)) ||
            (NULL == CU_add_test(pSuite, "test with int 0", testINTEGER_0)) ||
            (NULL == CU_add_test(pSuite, "test with int -1", testINTEGER_N1)) ||

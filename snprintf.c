@@ -56,7 +56,9 @@ int snprintf(char *buf, unsigned long int size, const char *format, ...) {
             continue;
         }
         c = format[j++];
-        if (c == 'c') {
+        if (c == '%') {
+            buf[i++] = '%';
+        } else if (c == 'c') {
             // char gets promoted to int
             char val = va_arg(ap, int);
             buf[i++] = val;
