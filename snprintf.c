@@ -75,8 +75,7 @@ int snprintf(char *buf, unsigned long int size, const char *format, ...) {
         }
     }
     va_end(ap);
-    buf[i++] = '\0';
+    buf[i+1] = '\0';
     // Returns #chars written to buf
-    // Does this work???
     return i;
 }

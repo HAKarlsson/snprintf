@@ -18,7 +18,7 @@ void testPERCENT(void)
     const char *str = "world";
     int len = snprintf(buf, 20, "hello, %%", str); 
     CU_ASSERT_STRING_EQUAL(buf, "hello, %");
-    CU_ASSERT(len == 9);
+    CU_ASSERT(len == 8);
 }
 
 void testSTRING(void) 
@@ -27,7 +27,7 @@ void testSTRING(void)
     const char *str = "world";
     int len = snprintf(buf, 20, "hello, %s", str); 
     CU_ASSERT_STRING_EQUAL(buf, "hello, world");
-    CU_ASSERT(len == 13);
+    CU_ASSERT(len == 12);
 }
 
 void testINTEGER_0(void) 
@@ -35,7 +35,7 @@ void testINTEGER_0(void)
     char buf[20];
     int len = snprintf(buf, 20, "hello, %d", 0); 
     CU_ASSERT_STRING_EQUAL(buf, "hello, 0");
-    CU_ASSERT(len == 9);
+    CU_ASSERT(len == 8);
 }
 
 void testINTEGER_N1(void) 
@@ -43,7 +43,7 @@ void testINTEGER_N1(void)
     char buf[20];
     int len = snprintf(buf, 20, "hello, %d", -1); 
     CU_ASSERT_STRING_EQUAL(buf, "hello, -1");
-    CU_ASSERT(len == 10);
+    CU_ASSERT(len == 9);
 }
 
 void testHEX_0(void) 
@@ -51,7 +51,7 @@ void testHEX_0(void)
     char buf[20];
     int len = snprintf(buf, 20, "hello, 0x%x", 0); 
     CU_ASSERT_STRING_EQUAL(buf, "hello, 0x0");
-    CU_ASSERT(len == 11);
+    CU_ASSERT(len == 10);
 }
 
 void testHEX_N1(void) 
@@ -59,7 +59,7 @@ void testHEX_N1(void)
     char buf[20];
     int len = snprintf(buf, 20, "hello, 0x%x", -1); 
     CU_ASSERT_STRING_EQUAL(buf, "hello, 0xFFFFFFFF");
-    CU_ASSERT(len == 18);
+    CU_ASSERT(len == 17);
 }
 
 int main(void)
