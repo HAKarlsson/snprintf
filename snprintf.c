@@ -67,7 +67,7 @@ int snprintf(char *buf, unsigned long int size, const char *format, ...) {
             int val = va_arg(ap, int);
             int neg = val < 0;
             i += _from_int(buf + i, size - i, (neg ? -val : val), neg, 10);
-        } else if (c == 'x') {
+        } else if (c == 'x' || c == 'X') {
             int val = va_arg(ap, int);
             i += _from_int(buf + i, size - i, val, 0, 16);
         }
